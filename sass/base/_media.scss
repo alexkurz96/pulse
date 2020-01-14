@@ -1,0 +1,146 @@
+@media (max-width: 1200px) {
+	.container {
+		max-width: 950px;
+	}
+}
+@media (max-width: 991px) {
+	.container {
+		max-width: 720px;
+	}
+	.advantages {
+		&__item {
+			max-width: 225px;
+		}
+	}
+	.consultation {
+		min-height: 600px;
+		padding: 60px 0 50px 0;
+		.title_left {
+			font-size: 28px;
+		}
+		&__descr {
+			margin-top: 50px;
+			font-size: 17px;
+		}
+	}
+}
+@media (max-width: 767px) {
+	.container {
+		max-width: 540px;
+	}
+	.header{
+		&__logo {
+			width: 200px;
+		}
+		&__official {
+			font-size: 11px;
+			span {
+				font-size: 15px;
+			}
+		}
+		&__phone {
+			font-size: 16px;
+		}
+		.button {
+			width: 140px;
+		}
+	}
+	.promo {
+		&__wrapper {
+			margin-top: 60px;
+		}
+		&__header {
+			font-size: 40px;
+			line-height: 40px;
+		}
+		&__subheader {
+			font-size: 22px;
+			line-height: 22px;
+		}
+		&__icons {
+			margin-top: 45px;
+		}
+		.button__main {
+			margin-top: 55px;
+		}
+	}
+	.advantages {
+		padding-top: 50px;
+		&__items {
+			margin-top: 10px;
+			flex-direction: column;
+			align-items: center;
+		}
+		&__item{
+			margin-top: 35px;
+			max-width: 350px;
+		}
+		&__subheader {
+			margin-top: 20px;
+		}
+		&__descr {
+			margin-top: 10px;
+		}
+	}
+}
+@media (max-width: 575px) {
+	.container {
+		width: 100%;
+	}
+	.header{
+		&__official {
+			display: none;
+		}
+		&__logo {
+			width: 170px;
+		}
+		&__phone {
+			font-size: 13px;
+		}
+		.button {
+			width: 125px;
+		}
+	}
+	.promo{
+		min-height: 510px;
+		padding-bottom: 60px;
+		&__wrapper {
+			margin-top: 40px;
+		}
+		&__header {
+			font-size: 23px;
+			line-height: 23px;
+		}
+		&__subheader {
+			margin-top: 5px;
+			font-size: 14px;
+			line-height: 14px;
+		}
+		&__icons {
+			margin-top: 25px;
+			width: 300px;
+		}
+		&__icon {
+			width: 90px;
+			font-size: 11px;
+		}
+		.button__main {
+			margin-top: 35px;
+			width: 260px;
+		}
+	}
+	.consultation {
+		min-height: 550px;
+		padding: 60px 0 50px 0;
+		.title_left {
+			font-size: 21px;
+		}
+		&__descr {
+			margin-top: 40px;
+			font-size: 13px;
+		}
+		.feed-form {
+			width: 100%;
+		}
+	}
+}
