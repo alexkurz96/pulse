@@ -23,6 +23,11 @@
 			font-size: 17px;
 		}
 	}
+	.carousel {
+		.tns-outer {
+			margin: 0 60px;
+		}
+	}
 }
 @media (max-width: 767px) {
 	.container {
@@ -80,6 +85,35 @@
 		}
 		&__descr {
 			margin-top: 10px;
+		}
+	}
+	.carousel {
+		.tns-outer {
+			margin: 0;
+		}
+		.prev {
+			display: none;
+		}
+		.next {
+			display: none;
+		}
+		.tns-nav {
+			display: flex;
+			justify-content: center;
+		}
+		button {
+			width: 10px;
+			height: 10px;
+			border: none;
+			border-radius: 50%;
+			padding: 0;
+			margin: 0 10px;
+			&:focus {
+				border-radius: 50%;
+			}
+		}
+		.tns-nav-active {
+			background-color: $main-color;
 		}
 	}
 }
