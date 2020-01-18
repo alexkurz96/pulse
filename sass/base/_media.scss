@@ -28,6 +28,11 @@
 			margin: 0 60px;
 		}
 	}
+	.reviews {
+		&__text {
+			max-width: 500px;
+		}
+	}
 }
 @media (max-width: 767px) {
 	.container {
@@ -116,6 +121,30 @@
 			background-color: $main-color;
 		}
 	}
+	.catalog {
+		&__content {
+			justify-content: center;
+		}
+		&__tab {
+			&:hover {
+				box-shadow: none;
+				border: none;
+			}
+		}
+	}
+	.reviews {
+		&__items {
+			margin: 35px 0;
+		}
+		&__item {
+			flex-direction: column;
+			margin-bottom: 50px;
+		}
+		&__photo {
+			display: block;
+			margin: 0 auto;
+		}
+	}
 }
 @media (max-width: 575px) {
 	.container {
@@ -175,6 +204,15 @@
 		}
 		.feed-form {
 			width: 100%;
+		}
+	}
+	.catalog {
+		&__tabs {
+			margin-top: 20px;
+			flex-direction: column;
+		}
+		&__tab {
+			margin: 10px 5px;
 		}
 	}
 }
