@@ -1,22 +1,3 @@
-// $(document).ready(function(){
-// 	$('.carousel__inner').slick({
-// 		speed: 1200,
-// 		autoplay: true,
-// 		autoplaySpeed: 2000,
-// 		prevArrow: '<button type="button" class="slick-prev"><img src="icons/left.svg"></button>',
-// 		nextArrow: '<button type="button" class="slick-next"><img src="icons/right.svg"></button>',
-// 		responsive: [
-// 			{
-// 				breakpoint: 992,
-// 				settings: {
-// 					dots: true,
-// 					arrows: false
-// 				}
-// 			}
-// 		]
-// 	});
-// });
-
 const slider = tns({
 	container: '.carousel__inner',
 	items: 1,
@@ -35,3 +16,32 @@ const slider = tns({
 document.querySelector('.prev').addEventListener('click', () => slider.goTo('prev'));
 
 document.querySelector('.next').addEventListener('click', () => slider.goTo('next'));
+
+let tabs = document.querySelectorAll('.catalog__tab');
+for (let i = 0; i < tabs.length; i++) {
+	const tab = tabs[i];
+	tab.addEventListener('click', () => {
+		let tabActive = document.querySelector('.catalog__tab_active');
+		tabActive.classList.remove('catalog__tab_active');
+		tab.classList.add('catalog__tab_active');
+		let contents = document.querySelectorAll('.catalog__content');
+		contents.forEach (content => content.classList.remove('catalog__content_active'));
+		contents[i].classList.add('catalog__content_active');
+	}, !tab.classList.contains('catalog__tab_active'));
+}
+
+
+Slide('catalog-item__link');
+Slide('catalog-item__back');
+
+function Slide(str) {
+	let items = document.querySelectorAll(`.${str}`);
+	for (let i = 0; i < items.length; i++) {
+		const item = items[i];
+		item.addEventListener('click', (e) => {
+			e.preventDefault();
+			document.querySelectorAll('.catalog-item__content')[i].classList.toggle('catalog-item__content_active');
+			document.querySelectorAll('.catalog-item__list')[i].classList.toggle('catalog-item__list_active');
+		});
+	}
+}
