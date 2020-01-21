@@ -45,3 +45,97 @@ function Slide(str) {
 		});
 	}
 }
+
+//modal
+
+let consultationsBtn = document.querySelectorAll('[data-modal=consultation]');
+consultationsBtn.forEach((item, num) =>{
+	clickAndOpenForm(item, 'consultation');
+});
+
+let close = document.querySelectorAll('.modal__close');
+close.forEach((item, num) =>{
+	item.addEventListener('click', (e) => {
+		fade(document.getElementById('consultation'));//.style.display = 'none';
+		fade(document.getElementById('order'));//.style.display = 'none';
+		fade(document.getElementById('thanks'));//.style.display = 'none';
+		fade(document.getElementById('overlay'));//.style.display = 'none';
+	});
+});
+
+let btnMini = document.querySelectorAll('.button_mini');
+btnMini.forEach((item, num) =>{
+	item.addEventListener('click', (e) => {
+		let order = document.getElementById('order');
+		unfade(order);//.style.display = 'block';
+		let text = document.querySelectorAll('.catalog-item__subtitle')[num].textContent;
+		order.querySelector('.modal__descr').textContent = text;
+		unfade(document.getElementById('overlay'));//.style.display = 'block';
+	});
+});
+
+function clickAndOpenForm(item, nameForm) {
+	item.addEventListener('click', (e) => {
+		unfade(document.getElementById(nameForm));//.style.display = 'block';
+		unfade(document.getElementById('overlay'));//.style.display = 'block';
+	});
+}
+
+function fade(element) {
+	var op = 1;  // initial opacity
+	var timer = setInterval(function () {
+			if (op <= 0.1){
+					clearInterval(timer);
+					element.style.display = 'none';
+			}
+			element.style.opacity = op;
+			element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+			op -= op * 0.1;
+	}, 50);
+}
+
+function unfade(element) {
+	var op = 0.1;  // initial opacity
+	element.style.display = 'block';
+	var timer = setInterval(function () {
+			if (op >= 1){
+					clearInterval(timer);
+			}
+			element.style.opacity = op;
+			element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+			op += op * 0.1;
+	}, 10);
+}
+
+$(document).ready(function(){
+
+	validateForms('#consultation form')
+	validateForms('#consultation-form')
+	validateForms('#order form')
+	function validateForms(form) {
+		$(form).validate({
+			rules: {
+				name: {
+					required: true,
+					minlength: 2
+				},
+				phone: "required",
+				email: {
+					required: true,
+					email: true
+				}
+			},
+			messages: {
+				name: {
+					required: "Пожалуйста, введите своё имя",
+					minlength: jQuery.validator.format("Введите {0} символа!")
+				},
+				phone: "Пожалуйста, введите свой телефон",
+				email: {
+					required: "Пожалуйста, введите свою почту",
+					email: "Не правильно введен адрес почты"
+				}
+			}
+		});
+	}
+});
