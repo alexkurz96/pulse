@@ -138,4 +138,40 @@ $(document).ready(function(){
 			}
 		});
 	}
+
+	$("input[name=phone]").mask("+7 (999) 999-9999");
+
+	$('form').submit(function(e) {
+		e.preventDefault();
+		$.ajax({
+				type: "POST",
+				url: "mailer/smart.php",
+				data: $(this).serialize()
+		}).done(function() {
+				$(this).find("input").val("");
+				fade(document.getElementById('consultation'));
+				fade(document.getElementById('order'));
+				unfade(document.getElementById('thanks'));
+				unfade(document.getElementById('overlay'));
+
+				$('form').trigger('reset');
+		});
+		return false;
+	});
+
+	// Smooth scroll and pageup
+
+	// $(window).scroll(function() {
+	// 		if ($(this).scrollTop() > 1600) {
+	// 				$('.pageup').fadeIn();
+	// 		} else {
+	// 				$('.pageup').fadeOut();
+	// 		}
+	// });
+
+	// $("a[href^='#']").click(function(){
+	// 		const _href = $(this).attr("href");
+	// 		$("html, body").animate({scrollTop: $(_href).offset().top+"px"});
+	// 		return false;
+	// });
 });
